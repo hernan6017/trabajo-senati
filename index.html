@@ -44,12 +44,9 @@
     .g1{background:var(--orange);left:-130px;top:8%}.g2{background:var(--red);right:-140px;bottom:8%;animation-delay:2s}.g3{background:var(--cyan);left:45%;bottom:-180px;animation-delay:1s}
     @keyframes drift{to{transform:translate(70px,-45px) scale(1.12)}}
 
-    .slide{position:absolute;inset:0;display:none;padding:62px 7%;opacity:0;transform:translateX(60px) scale(.985);filter:blur(10px)}
-    .slide.active{display:grid;align-items:center;animation:slideNext .65s cubic-bezier(.2,.8,.2,1) both}
-    .slide.active.prevMove{animation:slidePrev .65s cubic-bezier(.2,.8,.2,1) both}
-    .slide.active.nextMove{animation:slideNext .65s cubic-bezier(.2,.8,.2,1) both}
-    @keyframes slideNext{from{opacity:0;transform:translateX(80px) scale(.985);filter:blur(10px)}to{opacity:1;transform:translateX(0) scale(1);filter:blur(0)}}
-    @keyframes slidePrev{from{opacity:0;transform:translateX(-80px) scale(.985);filter:blur(10px)}to{opacity:1;transform:translateX(0) scale(1);filter:blur(0)}}
+    .slide{position:absolute;inset:0;display:none;padding:62px 7%;animation:fade .45s ease}
+    .slide.active{display:grid;align-items:center}
+    @keyframes fade{from{opacity:0;transform:translateX(38px) scale(.985);filter:blur(8px)}to{opacity:1;transform:translateX(0) scale(1);filter:blur(0)}}
     .slide.active h1,.slide.active h2{animation:titleIn .75s cubic-bezier(.2,.8,.2,1) both}.slide.active p,.slide.active .list li,.slide.active .mini,.slide.active .step{animation:riseIn .65s cubic-bezier(.2,.8,.2,1) both}.slide.active .list li:nth-child(1){animation-delay:.12s}.slide.active .list li:nth-child(2){animation-delay:.2s}.slide.active .list li:nth-child(3){animation-delay:.28s}.slide.active .list li:nth-child(4){animation-delay:.36s}.slide.active .list li:nth-child(5){animation-delay:.44s}.slide.active .mini:nth-child(1),.slide.active .step:nth-child(1){animation-delay:.12s}.slide.active .mini:nth-child(2),.slide.active .step:nth-child(2){animation-delay:.24s}.slide.active .mini:nth-child(3),.slide.active .step:nth-child(3){animation-delay:.36s}.slide.active .step:nth-child(4){animation-delay:.48s}
     @keyframes titleIn{from{opacity:0;transform:translateY(30px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
     @keyframes riseIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
@@ -105,13 +102,14 @@
     .no-water{position:relative;width:320px;height:320px;border:18px solid #ef4444;border-radius:50%;z-index:4;display:grid;place-items:center;background:rgba(2,6,23,.4);box-shadow:0 0 65px rgba(239,68,68,.3)}.no-water::after{content:"";position:absolute;width:375px;height:18px;background:#ef4444;transform:rotate(-42deg);border-radius:999px}.drop{font-size:120px;filter:drop-shadow(0 20px 25px rgba(0,0,0,.4))}
     .k-badge{width:300px;height:300px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#fef3c7,#facc15 50%,#fb923c);color:#020617;font-size:160px;font-weight:950;box-shadow:0 0 90px rgba(250,204,21,.3);z-index:3;animation:float 4s ease-in-out infinite}.k-badge::after{content:"CLASE";position:absolute;margin-top:190px;font-size:32px;letter-spacing:4px;color:#7c2d12}.k-badge::before{content:"";position:absolute;inset:-18px;border:3px dashed rgba(250,204,21,.7);border-radius:50%;animation:spin 10s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
     .kitchen-icons{display:grid;grid-template-columns:repeat(2,160px);gap:22px;z-index:3}.kicon{height:150px;border-radius:28px;background:rgba(255,255,255,.1);border:1px solid var(--line);display:grid;place-items:center;font-size:62px;box-shadow:0 20px 45px rgba(0,0,0,.25);animation:pop 3s ease-in-out infinite}.kicon:nth-child(2){animation-delay:.4s}.kicon:nth-child(3){animation-delay:.8s}.kicon:nth-child(4){animation-delay:1.2s}@keyframes pop{50%{transform:translateY(-10px) scale(1.04)}}
-    .controls{position:fixed;right:24px;bottom:22px;z-index:60;display:flex;gap:10px}.counter{position:fixed;left:24px;bottom:22px;z-index:60;padding:13px 16px;border-radius:16px;background:rgba(255,255,255,.1);border:1px solid var(--line);backdrop-filter:blur(14px);font-weight:900}.progress{position:fixed;left:0;bottom:0;height:6px;background:linear-gradient(90deg,var(--yellow),var(--orange),var(--red));width:0;z-index:70;transition:.3s}.note{position:fixed;left:24px;top:20px;color:#94a3b8;font-size:14px;z-index:60}button{border:1px solid var(--line);background:rgba(255,255,255,.12);color:white;padding:13px 17px;border-radius:16px;font-weight:900;cursor:pointer;backdrop-filter:blur(14px);transition:.25s}button:hover{background:rgba(251,146,60,.25);transform:translateY(-3px)}}
+    .controls{position:fixed;right:24px;bottom:22px;z-index:60;display:flex;gap:10px}.counter{position:fixed;left:24px;bottom:22px;z-index:60;padding:13px 16px;border-radius:16px;background:rgba(255,255,255,.1);border:1px solid var(--line);backdrop-filter:blur(14px);font-weight:900}.progress{position:fixed;left:0;bottom:0;height:6px;background:linear-gradient(90deg,var(--yellow),var(--orange),var(--red));width:0;z-index:70;transition:.3s}.note{position:fixed;left:24px;top:20px;color:#94a3b8;font-size:14px;z-index:60}button{border:1px solid var(--line);background:rgba(255,255,255,.12);color:white;padding:13px 17px;border-radius:16px;font-weight:900;cursor:pointer;backdrop-filter:blur(14px);transition:.25s}button:hover{background:rgba(251,146,60,.25);transform:translateY(-3px)}
+    .pulse-hint{position:fixed;right:24px;top:20px;z-index:60;padding:10px 14px;border-radius:999px;background:rgba(34,197,94,.14);border:1px solid rgba(34,197,94,.35);color:#bbf7d0;font-size:14px;font-weight:900;animation:hintPulse 1.8s infinite}@keyframes hintPulse{50%{transform:scale(1.05);box-shadow:0 0 28px rgba(34,197,94,.25)}}
     @media(max-width:900px){.slide{padding:70px 5%;overflow:auto}.layout,.compare,.steps,.cards3{grid-template-columns:1fr}.visual{min-height:380px}.extinguisher{transform:scale(.7)}h1{font-size:56px}h2{font-size:42px}p{font-size:19px}.list li{font-size:18px}.cards3{gap:12px}}
   </style>
 </head>
 <body>
 <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
-<div class="note">Presentación SENATI · Extintores Clase K · Usa ← → o espacio</div>
+<div class="note">Presentación SENATI · Extintores Clase K · Usa ← → o espacio</div><div class="pulse-hint">Modo presentación PRO</div>
 
 <main>
   <section class="slide active">
@@ -347,18 +345,13 @@
   const counter=document.getElementById('counter');
   const progress=document.getElementById('progress');
   let index=0;
-  let direction='next';
-  function showSlide(i){
-    slides.forEach(s=>s.classList.remove('active','nextMove','prevMove'));
-    slides[i].classList.add('active', direction==='prev' ? 'prevMove' : 'nextMove');
-    counter.textContent=`${i+1} / ${slides.length}`;
-    progress.style.width=`${((i+1)/slides.length)*100}%`;
-  }
-  function nextSlide(){direction='next';index=(index+1)%slides.length;showSlide(index)}
-  function prevSlide(){direction='prev';index=(index-1+slides.length)%slides.length;showSlide(index)}
+  function showSlide(i){slides.forEach(s=>s.classList.remove('active'));slides[i].classList.add('active');counter.textContent=`${i+1} / ${slides.length}`;progress.style.width=`${((i+1)/slides.length)*100}%`}
+  function nextSlide(){index=(index+1)%slides.length;showSlide(index)}
+  function prevSlide(){index=(index-1+slides.length)%slides.length;showSlide(index)}
   document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')nextSlide();if(e.key==='ArrowLeft')prevSlide()});
   showSlide(index);
 </script>
 </body>
 </html>
+
 
